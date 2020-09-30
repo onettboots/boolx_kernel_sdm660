@@ -163,6 +163,11 @@ config CPU_FREQ_DEFAULT_GOV_NEBULA
 	  loading your cpufreq low-level hardware driver, using the
 	  'nebula' governor for latency-sensitive workloads.
 	  
+
+config CPU_FREQ_DEFAULT_GOV_ALUCARD
+    bool "alucard"
+	select CPU_FREQ_GOV_ALUCARD
+	  
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -342,7 +347,11 @@ config CPU_FREQ_GOV_BLU_SCHEDUTIL
 	  be called cpufreq_blu_schedutil.
 	  
 	  If in doubt, say N.
-
+	  
+config CPU_FREQ_GOV_ALUCARD
+    tristate "'alucard' cpufreq governor"
+	depends on CPU_FREQ
+	  
 comment "CPU frequency scaling drivers"
 
 config CPUFREQ_DT
