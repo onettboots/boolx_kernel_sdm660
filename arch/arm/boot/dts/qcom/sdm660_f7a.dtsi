@@ -35,7 +35,7 @@
 
 	chosen {
 		stdout-path = "serial0";
-		bootargs = "rcupdate.rcu_expedited=1";
+		bootargs = "quiet rcupdate.rcu_normal_after_boot=1 noirqdebug";
 	};
 
 	psci {
@@ -51,6 +51,7 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x0>;
+			clock-frequency = <1612800000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
@@ -80,6 +81,7 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x1>;
+			clock-frequency = <1612800000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
@@ -103,6 +105,7 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x2>;
+			clock-frequency = <1612800000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
@@ -126,6 +129,7 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x3>;
+			clock-frequency = <1612800000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
@@ -149,6 +153,7 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x100>;
+			clock-frequency = <1804800000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile1>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
@@ -176,6 +181,7 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x101>;
+			clock-frequency = <1804800000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile2>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
@@ -199,6 +205,7 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x102>;
+			clock-frequency = <1804800000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile3>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
@@ -222,6 +229,7 @@
 			device_type = "cpu";
 			compatible = "arm,armv8";
 			reg = <0x0 0x103>;
+			clock-frequency = <1804800000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile4>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
@@ -301,7 +309,7 @@
 	firmware: firmware {
 		android {
 			compatible = "android,firmware";
-				vbmeta {
+			vbmeta {
 				compatible = "android,vbmeta";
 				parts = "vbmeta,boot,system,vendor,dtbo,recovery";
 			};
@@ -692,7 +700,7 @@
 	};
 
 /*
-        qcom,qbt1000 {
+	qcom,qbt1000 {
 		compatible = "qcom,qbt1000";
 		clock-names = "core", "iface";
 		clocks = <&clock_gcc GCC_BLSP1_QUP3_SPI_APPS_CLK>,
@@ -857,6 +865,7 @@
 		clock-names = "osm";
 		clocks = <&clock_cpu PWRCL_CLK>;
 		qcom,cxip-lm-enable = <1>;
+		qcom,disable-vdd-rstr;
 		qcom,vdd-restriction-temp = <5>;
 		qcom,vdd-restriction-temp-hysteresis = <10>;
 
@@ -1274,6 +1283,16 @@
 				< 2150400 3879 >,
 				< 2457600 6881 >;
 		};
+	};
+
+	devfreq_compute: qcom,devfreq-compute {
+		compatible = "qcom,arm-cpu-mon";
+		qcom,cpulist = <&CPU0 &CPU1 &CPU2 &CPU3>;
+		qcom,target-dev = <&mincpubw>;
+		qcom,core-dev-table =
+                        < 902400 762 >,
+                        < 1401600 2086 >,
+                        < 1881600 3879 >;
 	};
 
 	clock_cpu: qcom,clk-cpu-660@179c0000 {
@@ -2443,12 +2462,13 @@
 		reg = <0x786040 0x8>;
 		reg-names = "fuse-base";
 	};
+
 	sn_fuse: snfuse@0xA4128 {
-        compatible = "qcom,sn-fuse";
-        reg = <0x786134 0x4>,
-              <0x78607C 0x4>;
-        reg-names = "sn-base","fuse-state";
-       };
+		compatible = "qcom,sn-fuse";
+		reg = <0x786134 0x4>,
+		      <0x78607C 0x4>;
+		reg-names = "sn-base","fuse-state";
+	};
 
 	jtag_mm0: jtagmm@7840000 {
 		compatible = "qcom,jtagv8-mm";
