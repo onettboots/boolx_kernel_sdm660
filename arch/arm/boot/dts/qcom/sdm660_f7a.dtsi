@@ -417,11 +417,6 @@
 			linux,cma-default;
 		};
 
-		cont_splash_mem: splash_region@9d400000 {
-			reg = <0x0 0x9d400000 0x0 0x23ff000>;
-			label = "cont_splash_mem";
-		};
-
 		dfps_data_mem: dfps_data_mem@0x9f7ff000 {
 		       reg = <0 0x9f8ff000 0 0x00001000>;
 		       label = "dfps_data_mem";
@@ -698,7 +693,6 @@
 			 <&clock_gcc GCC_BLSP1_AHB_CLK>;
 		clock-names = "core", "iface";
 	};
-
 /*
 	qcom,qbt1000 {
 		compatible = "qcom,qbt1000";
@@ -710,7 +704,6 @@
 		qcom,finger-detect-gpio = <&pm660_gpios 11 0>;
 	};
 */
-
 	qcom,sensor-information {
 		compatible = "qcom,sensor-information";
 		sensor_information0: qcom,sensor-information-0 {
@@ -900,7 +893,7 @@
 
 	qcom,bcl {
 		compatible = "qcom,bcl";
-		qcom,bcl-enable;
+/*		qcom,bcl-enable; */
 		qcom,bcl-framework-interface;
 		qcom,bcl-hotplug-list = <>;
 		qcom,bcl-soc-hotplug-list = <>;
