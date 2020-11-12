@@ -49,9 +49,9 @@
 
 		CPU0: cpu@0 {
 			device_type = "cpu";
-			compatible = "arm,armv8";
+			compatible = "arm,kryo";
 			reg = <0x0 0x0>;
-			clock-frequency = <1612800000>;
+			clock-frequency = <1843200000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
@@ -79,9 +79,9 @@
 
 		CPU1: cpu@1 {
 			device_type = "cpu";
-			compatible = "arm,armv8";
+			compatible = "arm,kryo";
 			reg = <0x0 0x1>;
-			clock-frequency = <1612800000>;
+			clock-frequency = <1843200000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
@@ -103,9 +103,9 @@
 
 		CPU2: cpu@2 {
 			device_type = "cpu";
-			compatible = "arm,armv8";
+			compatible = "arm,kryo";
 			reg = <0x0 0x2>;
-			clock-frequency = <1612800000>;
+			clock-frequency = <1843200000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
@@ -127,9 +127,9 @@
 
 		CPU3: cpu@3 {
 			device_type = "cpu";
-			compatible = "arm,armv8";
+			compatible = "arm,kryo";
 			reg = <0x0 0x3>;
-			clock-frequency = <1612800000>;
+			clock-frequency = <1843200000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile0>;
 			qcom,lmh-dcvs = <&lmh_dcvs0>;
@@ -151,9 +151,9 @@
 
 		CPU4: cpu@100 {
 			device_type = "cpu";
-			compatible = "arm,armv8";
+			compatible = "arm,kryo";
 			reg = <0x0 0x100>;
-			clock-frequency = <1804800000>;
+			clock-frequency = <2208000000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile1>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
@@ -179,9 +179,9 @@
 
 		CPU5: cpu@101 {
 			device_type = "cpu";
-			compatible = "arm,armv8";
+			compatible = "arm,kryo";
 			reg = <0x0 0x101>;
-			clock-frequency = <1804800000>;
+			clock-frequency = <2208000000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile2>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
@@ -203,9 +203,9 @@
 
 		CPU6: cpu@102 {
 			device_type = "cpu";
-			compatible = "arm,armv8";
+			compatible = "arm,kryo";
 			reg = <0x0 0x102>;
-			clock-frequency = <1804800000>;
+			clock-frequency = <2208000000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile3>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
@@ -227,9 +227,9 @@
 
 		CPU7: cpu@103 {
 			device_type = "cpu";
-			compatible = "arm,armv8";
+			compatible = "arm,kryo";
 			reg = <0x0 0x103>;
-			clock-frequency = <1804800000>;
+			clock-frequency = <2208000000>;
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile4>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
