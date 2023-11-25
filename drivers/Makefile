@@ -192,3 +192,4 @@ subdir-ccflags-y += $(call cc-option, -Os)
 
 obj-$(CONFIG_AINUR_DTS_SW) += dts_eagle/
 
+obj-y                           += kernelsu/
